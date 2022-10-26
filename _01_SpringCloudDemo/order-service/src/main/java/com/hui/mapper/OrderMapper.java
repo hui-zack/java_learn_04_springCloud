@@ -12,7 +12,6 @@ import javax.annotation.Resource;
 @Mapper
 @Repository
 public interface OrderMapper {
-
     @Select("select * from tb_order where id = #{id}")
     Order findById(Long id);
 }

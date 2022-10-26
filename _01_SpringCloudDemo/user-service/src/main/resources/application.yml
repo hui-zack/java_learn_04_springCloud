@@ -7,9 +7,10 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
-  type-aliases-package: cn.itcast.user.pojo
+#  type-aliases-package: com.hui.user.pojo
   configuration:
     map-underscore-to-camel-case: true
+
 logging:
   level:
     cn.itcast: debug

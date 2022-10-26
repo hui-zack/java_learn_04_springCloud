@@ -26,22 +26,14 @@ public class OrderService {
 
     public Order queryOrderById(Long orderId) {
         // 1.查询订单
+        System.out.println(orderId);
         Order order = orderMapper.findById(orderId);
+        System.out.println("find id = " + orderId);
+        System.out.println(order.toString());
         String url = "http://localhost:8081/user/" + order.getUserId();
         User user = restTemplate.getForObject(url, User.class);
         // 4.返回
         order.setUser(user);
-
-        String testUrl = "http://localhost:8085/api/alarm/news";
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HashMap<String, Object> requestBody = new HashMap<>();
-        requestBody.put("cameraMac", "24:28:fd:de:cb:a4");
-        HttpEntity<HashMap<String, Object>> hashMapHttpEntity = new HttpEntity<>(requestBody, headers);
-
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(testUrl, hashMapHttpEntity, String.class);
-        String body = responseEntity.getBody();
-        System.out.println(body);
 
         return order;
     }
