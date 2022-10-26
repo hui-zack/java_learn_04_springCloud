@@ -33,6 +33,7 @@ public class OrderService {
             return null;
         }
         String url = "http://localhost:8081/user/" + order.getUserId();
+        /* 1-1-1 在order模块的service中使用RestTemplate发送请求 */
         User user = restTemplate.getForObject(url, User.class);
         // 4.返回
         order.setUser(user);

@@ -16,6 +16,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /* 1-2 在user-service模块中定义查询接口 */
+
     /**
      * 路径： /user/110
      *

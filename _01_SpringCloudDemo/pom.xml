@@ -4,12 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.itcast.demo</groupId>
+    <groupId>com.hui</groupId>
     <artifactId>cloud-demo</artifactId>
     <version>1.0</version>
     <modules>
         <module>user-service</module>
         <module>order-service</module>
+        <module>eureka-server</module>
     </modules>
 
     <packaging>pom</packaging>

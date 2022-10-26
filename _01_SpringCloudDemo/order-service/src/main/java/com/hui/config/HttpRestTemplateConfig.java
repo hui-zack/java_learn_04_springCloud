@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
 
-/* 1-1 创建RestTemplate配置类, 注入RestTemplate对象 */
+/* 1-1 配置SpringBoot原生RestTemplate请求发送对象 */
 @Configuration
 @ConfigurationProperties(prefix = "http.client")
 @Data
