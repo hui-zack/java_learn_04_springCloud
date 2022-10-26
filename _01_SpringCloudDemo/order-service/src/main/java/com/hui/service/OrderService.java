@@ -26,10 +26,12 @@ public class OrderService {
 
     public Order queryOrderById(Long orderId) {
         // 1.查询订单
-        System.out.println(orderId);
+
         Order order = orderMapper.findById(orderId);
-        System.out.println("find id = " + orderId);
-        System.out.println(order.toString());
+        if (order == null){
+            System.out.println(("[error] id don't find in database where id = " + orderId));
+            return null;
+        }
         String url = "http://localhost:8081/user/" + order.getUserId();
         User user = restTemplate.getForObject(url, User.class);
         // 4.返回
