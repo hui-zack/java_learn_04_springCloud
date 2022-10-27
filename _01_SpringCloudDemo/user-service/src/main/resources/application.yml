@@ -1,6 +1,16 @@
 server:
   port: 8081
+# 2-2-2 yml文件中编写Eureka-client配置(每个eureka-client必须包含application.name属性)
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+
+
 spring:
+  application:
+    name: userService
+
   datasource:
     url: jdbc:mysql://localhost:3306/springcloud?useSSL=false
     username: root
@@ -16,3 +26,4 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+

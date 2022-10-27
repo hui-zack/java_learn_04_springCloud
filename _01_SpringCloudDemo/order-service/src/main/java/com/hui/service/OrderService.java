@@ -25,17 +25,18 @@ public class OrderService {
 
 
     public Order queryOrderById(Long orderId) {
-        // 1.查询订单
 
         Order order = orderMapper.findById(orderId);
         if (order == null){
             System.out.println(("[error] id don't find in database where id = " + orderId));
             return null;
         }
-        String url = "http://localhost:8081/user/" + order.getUserId();
+
+        /* 2-3-3 修改需要使用的服务url, 将ip+port替换为服务名称 */
+        String url = "http://userservice:8081/user/" + order.getUserId();
+
         /* 1-1-1 在order模块的service中使用RestTemplate发送请求 */
         User user = restTemplate.getForObject(url, User.class);
-        // 4.返回
         order.setUser(user);
 
         return order;

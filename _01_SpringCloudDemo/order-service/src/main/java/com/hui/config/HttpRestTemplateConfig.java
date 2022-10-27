@@ -2,6 +2,7 @@ package com.hui.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -25,6 +26,8 @@ public class HttpRestTemplateConfig {
      */
     private Integer readTimeout = 2000;
 
+    /* 2-3-4 在order-service配置的RestTemplate的Bean上添加负载均衡注解 */
+    @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
