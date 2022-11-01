@@ -36,7 +36,7 @@
     
 .   [2-1 创建并启动Eureka-server模块]  
         [2-1-1 创建空的maven模块eureka-server, 在eureka-server模块pom中引入eureka依赖](./eureka-server/pom.xml)  
-        [2-1-2 手动编写springBoot启动启动main函数, 添加Eureka注解开启服务](./eureka-server/src/main/java/com/hui/EurekaApplication.java)  <br/>
+        [2-1-2 手动编写springBoot启动启动main函数, 添加@EnableEurekaServer注解开启服务](./eureka-server/src/main/java/com/hui/EurekaApplication.java)  <br/>
         [2-1-3 yml文件中编写Eureka-server配置](./eureka-server/src/main/resources/application.yml)  
         
         该步骤后可在localhost:10086访问eureka的web页面
@@ -53,4 +53,9 @@
         [2-3-1 将order-service注册为Eureka-client](./order-service/pom.xml)    
         [2-3-2 yml文件中编写Eureka-client配置(每个eureka-client必须包含application.name属性)](./order-service/src/main/resources/application.yml)   
         [2-3-3 修改需要使用的服务url, 将ip+port替换为服务名称](./order-service/src/main/java/com/hui/service/OrderService.java)  
-        [2-3-4 在order-service配置的RestTemplate的Bean上添加负载均衡注解](./order-service/src/main/java/com/hui/config/HttpRestTemplateConfig.java)
+        [2-3-4 在order-service配置的RestTemplate的Bean上添加负载均衡注解@LoadBalanced](./order-service/src/main/java/com/hui/config/HttpRestTemplateConfig.java)
+    
+    负债均衡:
+        服务消费者基于服务名称获取服务列表, 然后根据负债均衡算法选取服务
+        负债均衡规则根据Ribbon实现
+        

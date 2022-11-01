@@ -3,7 +3,7 @@ server:
   port: 10086
 spring:
   application:
-    name: EurekaServer
+    name: eurekaserver
 eureka:
   client:
     service-url:
